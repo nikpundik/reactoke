@@ -38,7 +38,7 @@ const reducer = (state: CreatorState, action: CreatorActions) => {
 };
 
 const CreatorContainer: FC = () => {
-  const song = useSong("foggy");
+  const song = useSong("sea");
   if (!song) return null;
   return <Creator song={song} />;
 };
@@ -78,7 +78,7 @@ const Creator: FC<{ song: Song }> = ({ song }) => {
       <div
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/bg/rollercoaster.jpeg")',
+            'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/bg/rollercoaster.jpeg")',
         }}
         className="p-4 flex-1 w-full bg-center bg-cover min-h-0"
       >

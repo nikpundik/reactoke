@@ -32,7 +32,7 @@ const Player: FC<{ song: Song }> = ({ song }) => {
     <div className="flex flex-col h-full">
       <div
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("${cover}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("${cover}")`,
         }}
         className="p-4 flex-1 flex flex-col items-center justify-center gap-2 w-full bg-center bg-cover"
       >

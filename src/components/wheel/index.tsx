@@ -4,7 +4,8 @@ import PlayIcon from "./PlayIcon";
 const songs = [
   { title: "Soaked", slug: "soaked" },
   { title: "Foggy Glasses", slug: "foggy" },
-  { title: "Qui con me", slug: "qui" },
+  { title: "Qui Con Me", slug: "qui" },
+  { title: "Out to Sea", slug: "sea" },
 ];
 
 const commonClassNames =
