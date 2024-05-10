@@ -1,4 +1,5 @@
-import { FC, TouchEvent, useRef, useState, WheelEvent } from "react";
+import { FC, useState, WheelEvent } from "react";
+import { SwipeCallback, useSwipeable } from "react-swipeable";
 import PlayIcon from "./PlayIcon";
 
 const songs = [
@@ -6,36 +7,31 @@ const songs = [
   { title: "Foggy Glasses", slug: "foggy" },
   { title: "Qui Con Me", slug: "qui" },
   { title: "Out to Sea", slug: "sea" },
+  { title: "Here With Me", slug: "here" },
 ];
 
 const commonClassNames =
   "absolute origin-left pl-[320px] transition-transform ease-out duration-200 truncate hover:cursor-pointer";
 const classNames = {
-  primary: [commonClassNames, "text-8xl"].join(" "),
-  secondary: [commonClassNames, "text-6xl", "text-indigo-200"].join(" "),
+  primary: [commonClassNames, "md:text-8xl text-6xl drop-shadow-lg"].join(" "),
+  secondary: [commonClassNames, "md:text-6xl text-4xl", "text-indigo-200"].join(
+    " "
+  ),
 };
 
 const useTouchWheel = (moveNext: () => void, movePrev: () => void) => {
-  const lastYRef = useRef(0);
-
-  const onTouchMove = (event: TouchEvent<HTMLDivElement>) => {
-    const deltaY = event.touches[0].clientY - lastYRef.current;
-    if (deltaY > 30) {
+  const onSwiped: SwipeCallback = (event) => {
+    if (event.dir === "Up") {
       moveNext();
-    } else if (deltaY < -30) {
+    } else if (event.dir === "Down") {
       movePrev();
     }
-    lastYRef.current = event.touches[0].clientY;
   };
+  const handlers = useSwipeable({
+    onSwiped,
+  });
 
-  const onTouchEnd = () => {
-    lastYRef.current = 0;
-  };
-
-  return {
-    onTouchMove,
-    onTouchEnd,
-  };
+  return handlers;
 };
 
 const useMouseWheel = (moveNext: () => void, movePrev: () => void) => {
@@ -70,8 +66,8 @@ const Wheel: FC<WheelProps> = ({ selectSong }) => {
           "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.84)), url('/bg/truck.jpeg')",
       }}
       className="flex flex-col justify-center gap-16 relative ml-[-260px] overflow-hidden h-full bg-top bg-cover"
-      {...desktopHandlers}
       {...mobileHandlers}
+      {...desktopHandlers}
     >
       {songs.map((song, i) => {
         const active = i === index;
@@ -84,7 +80,7 @@ const Wheel: FC<WheelProps> = ({ selectSong }) => {
           >
             <span>{song.title}</span>
             {active && (
-              <span className="absolute left-[280px] top-[calc(50%-12px)] text-2xl animate-pulse">
+              <span className="absolute left-[280px] top-[calc(50%-12px)] text-base md:text-2xl animate-pulse">
                 <PlayIcon />
               </span>
             )}

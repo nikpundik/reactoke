@@ -38,7 +38,7 @@ const reducer = (state: CreatorState, action: CreatorActions) => {
 };
 
 const CreatorContainer: FC = () => {
-  const song = useSong("sea");
+  const song = useSong("soaked");
   if (!song) return null;
   return <Creator song={song} />;
 };
