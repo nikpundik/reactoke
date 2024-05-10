@@ -5,7 +5,7 @@ import PlayIcon from "./PlayIcon";
 const songs = [
   { title: "Soaked", slug: "soaked" },
   { title: "Foggy Glasses", slug: "foggy" },
-  { title: "Qui Con Me", slug: "qui" },
+  { title: "Non mi vedo più", slug: "qui" },
   { title: "Out to Sea", slug: "sea" },
   { title: "Here With Me", slug: "here" },
 ];
