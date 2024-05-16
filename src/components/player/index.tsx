@@ -36,13 +36,13 @@ const Player: FC<{ song: Song }> = ({ song }) => {
         }}
         className="p-4 flex-1 flex flex-col items-center justify-center gap-2 w-full bg-center bg-cover"
       >
-        <p className="text-4xl md:text-6xl text-center font-bold text-[#F2F2F2] tracking-wide drop-shadow-lg">
+        <p className="text-3xl md:text-5xl text-center font-bold text-[#F2F2F2] tracking-wide drop-shadow-lg">
           {lyrics[index] ? lyrics[index]?.text || "♬" : ""}
         </p>
-        <p className="text-2xl md:text-4xl text-center text-[#CCCCCC] tracking-wide drop-shadow-md">
+        <p className="text-3xl md:text-5xl text-center text-[#CCCCCC] tracking-wide drop-shadow-md">
           {lyrics[index + 1] ? lyrics[index + 1]?.text || "♬" : ""}
         </p>
-        <p className="text-2xl md:text-4xl text-center text-[#CCCCCC] tracking-wide drop-shadow-md">
+        <p className="text-3xl md:text-5xl text-center text-[#CCCCCC] tracking-wide drop-shadow-md">
           {lyrics[index + 2] ? lyrics[index + 2]?.text || "♬" : ""}
         </p>
         {lyrics[index + 1] && (
